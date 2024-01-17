@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    td {
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    td:hover {
+      background-color: lightblue;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Crear la tabla y agregar eventos
+      const table = document.createElement('table');
+      for (let i = 0; i < 10; i++) {
+        const row = table.insertRow();
+        for (let j = 0; j < 3; j++) {
+          const cell = row.insertCell();
+          cell.addEventListener('mouseover', function () {
+            this.style.backgroundColor = 'lightblue';
+          });
+          cell.addEventListener('mouseout', function () {
+            this.style.backgroundColor = '';
+          });
+          cell.addEventListener('click', function () {
+            const value = prompt('Introduce un valor:');
+            if (value !== null) {
+              this.textContent = value;
+            }
+          });
+        }
+      }
+
+      // Agregar la tabla al cuerpo del documento
+      document.body.appendChild(table);
+    });
+  </script>
+  <title>Tabla Interactiva</title>
+</head>
+<body>
+
+</body>
+</html>
